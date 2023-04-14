@@ -1,4 +1,4 @@
-import { IPhoto } from './types';
+import { IPhoto } from '../types';
 import style from './index.module.scss';
 import PreviewGallery from '../PreviewGallery';
 import MainPhoto from '../MainPhoto';
@@ -21,7 +21,7 @@ const Gallery: React.FC<IGallery> = ({ photos }) => {
       <div className={style.container}>
         <MainPhoto
           prevPhoto={prevPhoto}
-          currentPhoto={activePhoto}
+          activePhoto={activePhoto}
           nextPhoto={nextPhoto}
           className={style.mainPhoto}
         />

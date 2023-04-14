@@ -4,3 +4,7 @@ export interface IPhoto {
   preview: string;
   description: string;
 }
+
+export interface ICommon {
+  className?: string;
+}
