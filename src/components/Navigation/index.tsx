@@ -1,4 +1,6 @@
+import cn from 'classnames';
 import { ICommon } from '../types';
+import style from './index.module.scss';
 
 interface INavigation extends ICommon {
   disabledNext: boolean;
@@ -12,8 +14,22 @@ const Navigation: React.FC<INavigation> = ({
   disabledPrev,
   onNextClick,
   onPrevClick,
-}) => {
-  return <div className="Navigation">Navigation</div>;
-};
+  className,
+}) => (
+  <div className={cn(style.navigation, className)}>
+    <button
+      disabled={disabledPrev}
+      className={cn(style.navigationBtn, style.navigationBtnLeft)}
+      onClick={onPrevClick}>
+      Previous
+    </button>
+    <button
+      disabled={disabledNext}
+      className={cn(style.navigationBtn, style.navigationBtnRight)}
+      onClick={onNextClick}>
+      Next
+    </button>
+  </div>
+);
 
 export default Navigation;
