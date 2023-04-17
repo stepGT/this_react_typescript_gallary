@@ -18,7 +18,7 @@ const Gallery: React.FC<IGallery> = ({ photos }) => {
   //
   return (
     <div className={style.gallery}>
-      <div className={style.container}>
+      <div className={style.galleryContainer}>
         <MainPhoto
           prevPhoto={prevPhoto}
           activePhoto={activePhoto}
@@ -26,7 +26,7 @@ const Gallery: React.FC<IGallery> = ({ photos }) => {
           className={style.mainPhoto}
         />
         <Navigation
-          className={style.navigation}
+          className={style.galleryNavigation}
           disabledNext={!nextPhoto}
           disabledPrev={!prevPhoto}
           onPrevClick={() => {
@@ -40,7 +40,7 @@ const Gallery: React.FC<IGallery> = ({ photos }) => {
       <PreviewGallery
         activePhotoIndex={indexActivePhoto}
         photos={photos}
-        className={style.preview}
+        className={style.galleryPreviewList}
       />
     </div>
   );
