@@ -7,9 +7,15 @@ interface IPreviewGallery extends ICommon {
   photos: IPhoto[];
   activePhotoIndex: number;
   className: string;
+  setNewPhoto: (id: number) => void;
 }
 
-const PreviewGallery: React.FC<IPreviewGallery> = ({ photos, activePhotoIndex, className }) => {
+const PreviewGallery: React.FC<IPreviewGallery> = ({
+  photos,
+  activePhotoIndex,
+  className,
+  setNewPhoto,
+}) => {
   const previewContainer = useRef<HTMLUListElement>(null);
   useEffect(() => {
     if (!previewContainer.current) return;
@@ -20,9 +26,9 @@ const PreviewGallery: React.FC<IPreviewGallery> = ({ photos, activePhotoIndex, c
       {useMemo(
         () => (
           <ul className={style.previewGalleryTrack} ref={previewContainer}>
-            {photos.map((photo) => (
+            {photos.map((photo, id) => (
               <li key={photo.id}>
-                <button className={style.previewGalleryPreview} onClick={() => {}}>
+                <button className={style.previewGalleryPreview} onClick={() => setNewPhoto(id)}>
                   <img
                     className={style.previewGalleryImage}
                     src={photo.preview}

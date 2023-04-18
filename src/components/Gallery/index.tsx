@@ -35,6 +35,7 @@ const Gallery: React.FC<IGallery> = ({ photos }) => {
         activePhotoIndex={indexActivePhoto}
         photos={photos}
         className={style.galleryPreviewList}
+        setNewPhoto={setIndexActivePhoto}
       />
     </div>
   );
